@@ -2,3 +2,6 @@ name = "workers-logs"
 main = "src/worker.js"
 compatibility_date = "2024-08-22"
 workers_dev = true
+
+[vars]
+BETTERSTACK_TOKEN = ""
