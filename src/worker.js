@@ -11,8 +11,8 @@
 // Export a default object containing event handlers
 export default {
   async fetch(request, env, ctx) {
-    
-		
+
+	  ctx.waitUntil(sinkToBetterstack(request.json(), env.BETTERSTACK_TOKEN));
   },
   async tail(events, env, ctx) {
 
@@ -31,7 +31,7 @@ async function sinkToBetterstack(event, token) {
       "Content-Type": "application/json",
       "Authorization": "Bearer " + token
     },
-    body: event
+    body: JSON.stringify(event)
   })
 
 }
